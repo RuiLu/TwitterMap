@@ -1,0 +1,17 @@
+{
+  "name": "TwitterMap",
+  "version": "1.0.2",
+  "script": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "aws-sdk": "*",
+    "mysql": "*",
+    "ejs": "*",
+    "express": "3.1.2",
+    "jquery": "^2.1.4",
+    "ntwitter": "*",
+    "socket.io": "0.8.7",
+    "underscore": "*"
+  }
+}
