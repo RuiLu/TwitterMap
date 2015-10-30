@@ -1,4 +1,4 @@
-var socket = io.connect()
+var socket = io.connect("http://rl2784.elasticbeanstalk.com")
     , map
     , heatmap
     , markersArray = []
@@ -11,7 +11,11 @@ var socket = io.connect()
     , limitMarkers = 1000
     , totalTweets = 0
     , mapType = 1
-    , pointArray = new google.maps.MVCArray()
+    , gameArray = new google.maps.MVCArray()
+    , sportArray = new google.maps.MVCArray()
+    , foodArray = new google.maps.MVCArray()
+    , theArray = new google.maps.MVCArray()
+    , musicArray = new google.maps.MVCArray()
     , markers = []
     , selectedWord = "game";
 
@@ -83,8 +87,22 @@ jQuery(function ($) {
             markers.push(temp);
         }
 
-        
-        pointArray.push(latLng);
+        if(selectedWord == 'game') {
+            gameArray.push(latLng);
+        }
+        if(selectedWord == 'sport') {
+            sportArray.push(latLng);
+        }
+        if(selectedWord == 'food') {
+            foodArray.push(latLng);
+        }
+        if(selectedWord == 'music') {
+            musicArray.push(latLng);
+        }
+        if(selectedWord == 'the') {
+            theArray.push(latLng);
+        }
+        //pointArray.push(latLng);
         // var markerCluster = new MarkerClusterer(map markersArray);
     });
     /* */
@@ -104,9 +122,9 @@ function initialize() {
     };
     map = new google.maps.Map(document.getElementById('map'),mapOptions);
 
-    heatmap = new google.maps.visualization.HeatmapLayer({
-        data: pointArray,
-    });
+    // heatmap = new google.maps.visualization.HeatmapLayer({
+    //     data: pointArray,
+    // });
 }
 
 /**
@@ -216,7 +234,7 @@ function changeKeyword() {
         selectedWord = $("#sel-keywords").val();
         $("span#keycriteria").html(selectedWord);
 
-        pointArray = [];
+        // pointArray = [];
 
         if (markersArray) {
             for (i in markersArray) {
@@ -245,7 +263,43 @@ function changeKeyword() {
     $("#btn-heatmap").click(function (e) {
         clearMarker();
         mapType = 2;
-        heatmap.setMap(heatmap.getMap() ? null : map);
+
+        if(selectedWord == 'game') {
+            heatmap = new google.maps.visualization.HeatmapLayer({
+                data: gameArray,
+            });
+            heatmap.setMap(heatmap.getMap() ? null : map);
+        }
+        if(selectedWord == 'sport') {
+            heatmap = new google.maps.visualization.HeatmapLayer({
+                data: sportArray,
+            });
+            heatmap.setMap(heatmap.getMap() ? null : map);
+        }
+        if(selectedWord == 'food') {
+            heatmap = new google.maps.visualization.HeatmapLayer({
+                data: foodArray,
+            });
+            heatmap.setMap(heatmap.getMap() ? null : map);
+        }
+        if(selectedWord == 'music') {
+            heatmap = new google.maps.visualization.HeatmapLayer({
+                data: musicArray,
+            });
+            heatmap.setMap(heatmap.getMap() ? null : map);
+        }
+        if(selectedWord == 'the') {
+            heatmap = new google.maps.visualization.HeatmapLayer({
+                data: theArray,
+            });
+            heatmap.setMap(heatmap.getMap() ? null : map);
+        }
+        // if(selectedWord == 'game')
+
+        // heatmap = new google.maps.visualization.HeatmapLayer({
+        //     data: pointArray,
+        // });
+        // heatmap.setMap(heatmap.getMap() ? null : map);
         
     });
     
