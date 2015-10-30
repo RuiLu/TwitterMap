@@ -20,6 +20,8 @@ Front-End: Google Map API, Bootstrap, JQuery, socket.io
 
 ATTENTION!!!
 ============
-Because of limiting time, I failed to totally achieve the final step. In fact, I use command "node server.js" to test in local, and the web app performs normally. When I deployed to the EBS, althought it shows OK and the web page can be opened, the server.js seemed to fail to run in EBS because I noticed the number of connections in RDS is 0. So weird. I looked up everywhere but still couldn't find the answer. Sorry for that. 
+<!--Because of limiting time, I failed to totally achieve the final step. In fact, I use command "node server.js" to test in local, and the web app performs normally. When I deployed to the EBS, althought it shows OK and the web page can be opened, the server.js seemed to fail to run in EBS because I noticed the number of connections in RDS is 0. So weird. I looked up everywhere but still couldn't find the answer. Sorry for that. -->
+<!---->
+<!--I will greatly appreciate if you can help. Thank you.-->
 
-I will greatly appreciate if you can help. Thank you.
+Problem solved.
